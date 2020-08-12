@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Toynote: Исходный файл notebook.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Toynote
+   &#160;<span id="projectnumber">20191224</span>
+   </div>
+   <div id="projectbrief">A toy note application</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">notebook.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="notebook_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef NOTEBOOK_HPP</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define NOTEBOOK_HPP</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span> <span class="comment">// size_t</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QAbstractTableModel&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QDataStream&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="note_8hpp.html">note.hpp</a>&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classNotebook.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNotebook.html">Notebook</a> : <span class="keyword">public</span> QAbstractTableModel</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classNotebook.html#a97547e50f8c414a832e922873e6c4451">   45</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classNotebook.html#a97547e50f8c414a832e922873e6c4451">SizeType</a> = int;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classNotebook.html#a1ca045e919168c2c40fe04962c7b6800">Notebook</a>();</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">const</span> <a class="code" href="classNote.html">Note</a> &amp;<a class="code" href="classNotebook.html#a48d2a86e5f883b6f40b79b90d023f267">operator[]</a>(<a class="code" href="classNotebook.html#a97547e50f8c414a832e922873e6c4451">SizeType</a> idx) <span class="keyword">const</span>;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classNotebook.html#a97547e50f8c414a832e922873e6c4451">SizeType</a> <a class="code" href="classNotebook.html#a9edf6478d01bf2cf4aa9e8d89f571dcf">size</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classNotebook.html#a0797a2580260ce66cd722267c3618eef">rowCount</a>(<span class="keyword">const</span> QModelIndex &amp;parent = QModelIndex()) const Q_DECL_OVERRIDE;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classNotebook.html#a6c3e56968bc835e329eeeca26647ed79">columnCount</a>(const QModelIndex &amp;parent = QModelIndex()) const Q_DECL_OVERRIDE;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    QVariant <a class="code" href="classNotebook.html#a6014a037af29275a1eb52dfd4601d2e6">data</a>(const QModelIndex &amp;index, <span class="keywordtype">int</span> role = Qt::DisplayRole) const Q_DECL_OVERRIDE;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    QVariant <a class="code" href="classNotebook.html#a7a95b6ddb9eb4d314415c9ac42370c53">headerData</a>(<span class="keywordtype">int</span> section, Qt::Orientation orientation, <span class="keywordtype">int</span> role = Qt::DisplayRole) const Q_DECL_OVERRIDE;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">// Конец реализации интерфейса модели</span></div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNotebook.html#a1c57b0b3d304e6e773963d0657fa2da6">save</a>(QDataStream &amp;ost) const;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="classNotebook.html#a97547e50f8c414a832e922873e6c4451">SizeType</a> <a class="code" href="classNotebook.html#acd27417ee2359c147ad3f4bf845e87e8">load</a>(QDataStream &amp;ist);</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNotebook.html#aba598ba162a413bd43153a95d15a896d">insert</a>(const <a class="code" href="classNote.html">Note</a> &amp;note);</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNotebook.html#a6ae94568c88d3f1a07b587deb3a254ed">erase</a>(<a class="code" href="classNotebook.html#a97547e50f8c414a832e922873e6c4451">SizeType</a> idx);</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;private:</div><div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classNotebook.html#a6cb34caeb3545f777edec9b076c4c323">  108</a></span>&#160;    std::vector&lt;<a class="code" href="classNote.html">Note</a>&gt; <a class="code" href="classNotebook.html#a6cb34caeb3545f777edec9b076c4c323">mNotes</a>;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div><div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="notebook_8hpp.html#a048272cda0cd6dc4b30f816f4d748d6f">  121</a></span>&#160;inline QDataStream &amp;operator&lt;&lt;(QDataStream &amp;ost, const <a class="code" href="classNotebook.html">Notebook</a> &amp;notebook)</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    notebook.save(ost);</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> ost;</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div><div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="notebook_8hpp.html#a660d6e769903604b438b41a9f38233d5">  133</a></span>&#160;<span class="keyword">inline</span> QDataStream &amp;<a class="code" href="notebook_8hpp.html#a660d6e769903604b438b41a9f38233d5">operator&gt;&gt;</a>(QDataStream &amp;ist, <a class="code" href="classNotebook.html">Notebook</a> &amp;notebook)</div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    notebook.<a class="code" href="classNotebook.html#acd27417ee2359c147ad3f4bf845e87e8">load</a>(ist);</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">return</span> ist;</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif // NOTEBOOK_HPP</span></div><div class="ttc" id="classNotebook_html_a97547e50f8c414a832e922873e6c4451"><div class="ttname"><a href="classNotebook.html#a97547e50f8c414a832e922873e6c4451">Notebook::SizeType</a></div><div class="ttdeci">int SizeType</div><div class="ttdoc">Тип индексов и размера контейнера. </div><div class="ttdef"><b>Definition:</b> notebook.hpp:45</div></div>
+<div class="ttc" id="classNotebook_html_a0797a2580260ce66cd722267c3618eef"><div class="ttname"><a href="classNotebook.html#a0797a2580260ce66cd722267c3618eef">Notebook::rowCount</a></div><div class="ttdeci">int rowCount(const QModelIndex &amp;parent=QModelIndex()) const Q_DECL_OVERRIDE</div><div class="ttdoc">Определяет количество строк в модели (заметок). </div><div class="ttdef"><b>Definition:</b> notebook.cpp:56</div></div>
+<div class="ttc" id="classNote_html"><div class="ttname"><a href="classNote.html">Note</a></div><div class="ttdoc">Класс заметки. </div><div class="ttdef"><b>Definition:</b> note.hpp:16</div></div>
+<div class="ttc" id="classNotebook_html_a48d2a86e5f883b6f40b79b90d023f267"><div class="ttname"><a href="classNotebook.html#a48d2a86e5f883b6f40b79b90d023f267">Notebook::operator[]</a></div><div class="ttdeci">const Note &amp; operator[](SizeType idx) const</div><div class="ttdoc">Оператор []. </div><div class="ttdef"><b>Definition:</b> notebook.cpp:40</div></div>
+<div class="ttc" id="classNotebook_html_a6ae94568c88d3f1a07b587deb3a254ed"><div class="ttname"><a href="classNotebook.html#a6ae94568c88d3f1a07b587deb3a254ed">Notebook::erase</a></div><div class="ttdeci">void erase(SizeType idx)</div><div class="ttdoc">Удаляет заметку с индексом idx из записной книжки. </div><div class="ttdef"><b>Definition:</b> notebook.cpp:189</div></div>
+<div class="ttc" id="classNotebook_html_a7a95b6ddb9eb4d314415c9ac42370c53"><div class="ttname"><a href="classNotebook.html#a7a95b6ddb9eb4d314415c9ac42370c53">Notebook::headerData</a></div><div class="ttdeci">QVariant headerData(int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const Q_DECL_OVERRIDE</div><div class="ttdoc">Возвращает данные указанной роли для указанного заголовка модели. </div><div class="ttdef"><b>Definition:</b> notebook.cpp:103</div></div>
+<div class="ttc" id="note_8hpp_html"><div class="ttname"><a href="note_8hpp.html">note.hpp</a></div><div class="ttdoc">Заголовочный файл класса Note. </div></div>
+<div class="ttc" id="classNotebook_html_aba598ba162a413bd43153a95d15a896d"><div class="ttname"><a href="classNotebook.html#aba598ba162a413bd43153a95d15a896d">Notebook::insert</a></div><div class="ttdeci">void insert(const Note &amp;note)</div><div class="ttdoc">Вставляет заметку note в записную книжку. </div><div class="ttdef"><b>Definition:</b> notebook.cpp:173</div></div>
+<div class="ttc" id="classNotebook_html_a9edf6478d01bf2cf4aa9e8d89f571dcf"><div class="ttname"><a href="classNotebook.html#a9edf6478d01bf2cf4aa9e8d89f571dcf">Notebook::size</a></div><div class="ttdeci">SizeType size() const</div><div class="ttdoc">Определяет размер коллекции (количество заметок). </div><div class="ttdef"><b>Definition:</b> notebook.cpp:45</div></div>
+<div class="ttc" id="classNotebook_html"><div class="ttname"><a href="classNotebook.html">Notebook</a></div><div class="ttdoc">Класс записной книжки. </div><div class="ttdef"><b>Definition:</b> notebook.hpp:34</div></div>
+<div class="ttc" id="classNotebook_html_a1c57b0b3d304e6e773963d0657fa2da6"><div class="ttname"><a href="classNotebook.html#a1c57b0b3d304e6e773963d0657fa2da6">Notebook::save</a></div><div class="ttdeci">void save(QDataStream &amp;ost) const</div><div class="ttdoc">Сохраняет записную книжку в поток ost. </div><div class="ttdef"><b>Definition:</b> notebook.cpp:128</div></div>
+<div class="ttc" id="classNotebook_html_a6c3e56968bc835e329eeeca26647ed79"><div class="ttname"><a href="classNotebook.html#a6c3e56968bc835e329eeeca26647ed79">Notebook::columnCount</a></div><div class="ttdeci">int columnCount(const QModelIndex &amp;parent=QModelIndex()) const Q_DECL_OVERRIDE</div><div class="ttdoc">Определяет количество столбцов в модели. </div><div class="ttdef"><b>Definition:</b> notebook.cpp:67</div></div>
+<div class="ttc" id="notebook_8hpp_html_a660d6e769903604b438b41a9f38233d5"><div class="ttname"><a href="notebook_8hpp.html#a660d6e769903604b438b41a9f38233d5">operator&gt;&gt;</a></div><div class="ttdeci">QDataStream &amp; operator&gt;&gt;(QDataStream &amp;ist, Notebook &amp;notebook)</div><div class="ttdoc">Реализация оператора &gt;&gt; для ввода Notebook из QDataStream. </div><div class="ttdef"><b>Definition:</b> notebook.hpp:133</div></div>
+<div class="ttc" id="classNotebook_html_a6014a037af29275a1eb52dfd4601d2e6"><div class="ttname"><a href="classNotebook.html#a6014a037af29275a1eb52dfd4601d2e6">Notebook::data</a></div><div class="ttdeci">QVariant data(const QModelIndex &amp;index, int role=Qt::DisplayRole) const Q_DECL_OVERRIDE</div><div class="ttdoc">Возвращает данные указанной роли для указанного элемента модели. </div><div class="ttdef"><b>Definition:</b> notebook.cpp:78</div></div>
+<div class="ttc" id="classNotebook_html_a6cb34caeb3545f777edec9b076c4c323"><div class="ttname"><a href="classNotebook.html#a6cb34caeb3545f777edec9b076c4c323">Notebook::mNotes</a></div><div class="ttdeci">std::vector&lt; Note &gt; mNotes</div><div class="ttdoc">Внутренний контейнер для хранения заметок записной книжки. </div><div class="ttdef"><b>Definition:</b> notebook.hpp:108</div></div>
+<div class="ttc" id="classNotebook_html_acd27417ee2359c147ad3f4bf845e87e8"><div class="ttname"><a href="classNotebook.html#acd27417ee2359c147ad3f4bf845e87e8">Notebook::load</a></div><div class="ttdeci">SizeType load(QDataStream &amp;ist)</div><div class="ttdoc">Очищает записную книжку и загружает новую из потока ist. Возвращает количество загруженных заметок...</div><div class="ttdef"><b>Definition:</b> notebook.cpp:143</div></div>
+<div class="ttc" id="classNotebook_html_a1ca045e919168c2c40fe04962c7b6800"><div class="ttname"><a href="classNotebook.html#a1ca045e919168c2c40fe04962c7b6800">Notebook::Notebook</a></div><div class="ttdeci">Notebook()</div><div class="ttdoc">Конструктор по умолчанию. </div><div class="ttdef"><b>Definition:</b> notebook.cpp:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
