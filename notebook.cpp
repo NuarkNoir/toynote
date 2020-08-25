@@ -188,9 +188,8 @@ void Notebook::insert(const Note &note)
 
 void Notebook::updateNoteAt(const Note &note, SizeType idx)
 {
-    beginResetModel();
     mNotes[idx] = note;
-    endResetModel();
+    dataChanged(QModelIndex(), QModelIndex());
 }
 
 void Notebook::erase(SizeType idx)

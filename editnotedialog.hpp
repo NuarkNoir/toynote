@@ -53,10 +53,6 @@ public:
     Note *note() const;
     //! Устанавливает указатель на редактируемую заметку.
     void setNote(Note *note);
-    //! Открывает заметку для редактирования
-    static void editNote(Note *note, QWidget *parent = 0);
-    //! Устанавливает текст заголовка и содержания заметки в соответствующие view
-    void applyCurrentModel();
 public slots:
     //! Обрабатывает подтверждение диалога.
     void accept() Q_DECL_OVERRIDE;

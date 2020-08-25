@@ -110,7 +110,7 @@ void MainWindow::displayAbout()
     // Устанавливаем основной текст в окне aboutDlg
     aboutDlg.setText(tr("%1 %2<br>"
         "Author: <a href=\"mailto:kpushkarev@sfu-kras.ru\">Kirill Pushkaryov</a>, 2019.<br>"
-        "Author: <a href=\"mailto:developer@nuark.xyz\">Gorbatsevich Andrei Anatolyevich</a>, KI19-07B, 031941597, 2020.<br>"
+        "Author: Gorbatsevich Andrei Anatolyevich, KI19-07B, 031941597.<br>"
         "This application is dynamically linked against the "
         "<a href=\"https://www.qt.io/developers/\">Qt Library</a> "
         "v. %3, which is under the LGPLv3 license.<br>"
@@ -313,12 +313,6 @@ bool MainWindow::newNote()
 
 void MainWindow::deleteNotes()
 {
-    // Если записная книжка не открыта, выдаём сообщение об этом
-    if (!isNotebookOpen())
-    {
-        QMessageBox::warning(this, Config::applicationName, tr("No open notebooks"));
-        return;
-    }
     // Создаём окно с вопросом об удалении заметок
     QMessageBox delCong(this);
     delCong.setIcon(QMessageBox::Question);
@@ -363,6 +357,7 @@ void MainWindow::updateUI() {
     this->mUi->actionSave_As_Text   ->setEnabled(ino);  // File|Save as text
     this->mUi->actionCloseNotebook  ->setEnabled(ino);  // File|Close
     this->mUi->actionNew_Note       ->setEnabled(ino);  // Add
+    this->mUi->notesView            ->setEnabled(ino);  // Notes grid
 
     // хэндлер выделения заметок;
     // мы сбрасываем модель при закрытии нотбука, поэтому нужно устанавливать каждый раз новый
@@ -507,14 +502,11 @@ void MainWindow::destroyNotebook()
 
 void MainWindow::on_actionExit_triggered()
 {
-    // Хотелось бы использовать closeNotebook(), но нужно отлавливать Cancel, поэтому велосипедим
-
-    QMessageBox exitDlg(this);
-    exitDlg.setIcon(QMessageBox::Question);
-    exitDlg.setWindowTitle(Config::applicationName);
-
     if (isNotebookOpen())
     {
+        QMessageBox exitDlg(this);
+        exitDlg.setIcon(QMessageBox::Question);
+        exitDlg.setWindowTitle(Config::applicationName);
         exitDlg.setText(tr("Would you like to save %1 before exit?").arg(notebookName()));
         exitDlg.setStandardButtons(QMessageBox::Save | QMessageBox::Discard);
         exitDlg.setDefaultButton(QMessageBox::Save);
@@ -522,7 +514,6 @@ void MainWindow::on_actionExit_triggered()
         {
             saveNotebook();
         }
-        QCoreApplication::exit(0);
     }
 
     QCoreApplication::exit(0);
@@ -533,21 +524,14 @@ void MainWindow::on_actionVisit_eCourses_triggered()
     QDesktopServices::openUrl(QUrl("https://e.sfu-kras.ru"));
 }
 
-bool MainWindow::on_actionSave_As_Text_triggered()
+void MainWindow::on_actionSave_As_Text_triggered()
 {
-    // Если записная книжка не открыта, выдаём сообщение об этом
-    if (!isNotebookOpen())
-    {
-        QMessageBox::warning(this, Config::applicationName, tr("No open notebooks"));
-        return false;
-    }
-
     // Выводим диалог выбора файла для сохранения
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save Notebook As Text"), QString(), Config::textNotebookFileNameFilter);
     // Если пользователь не выбрал файл, возвращаем false
     if (fileName.isEmpty())
     {
-        return false;
+        return;
     }
 
     // Сохраняем записную книжку в выбранный файл в текстовом формате
@@ -573,8 +557,6 @@ bool MainWindow::on_actionSave_As_Text_triggered()
     {
         QMessageBox::critical(this, Config::applicationName, tr("Unable to write to the file %1: %2").arg(fileName).arg(e.what()));
     }
-
-    return true;
 }
 
 void MainWindow::on_actionLottery_triggered()
@@ -600,13 +582,7 @@ void MainWindow::on_actionLottery_triggered()
 
 void MainWindow::on_notesView_activated(const QModelIndex &index)
 {
-    if (!isNotebookOpen()) {
-        QMessageBox::warning(this, Config::applicationName, tr("No open notebooks"));
-        return;
-    }
-
     if (mUi->notesView->selectionModel()->selectedRows().size() != 1) {
-        QMessageBox::warning(this, Config::applicationName, tr("Cannot edit multiple notes at once"));
         return;
     }
 

@@ -4,7 +4,6 @@
 #include <QString>
 
 
-
 namespace nuarkd {
     class LoteryProcessor;
 }
@@ -17,7 +16,7 @@ private:
         "Trip to the ♂Gym♂",                // 2
         "Anime Dakimakura Pillow",          // 3
         "20 mg. of anti-matter",            // 4
-        "Violent cock",                     // 5
+        "Violent clock",                    // 5
         "Beard oil",                        // 6
         "Pocket universe 2.0",              // 7
         "♂Dungeon master's♂ phone number"   // 8

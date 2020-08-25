@@ -73,7 +73,7 @@ private slots:
     //! Открывает еКурсы.
     void on_actionVisit_eCourses_triggered();
     //! Экспортирует заметки в текстовом формате.
-    bool on_actionSave_As_Text_triggered();
+    void on_actionSave_As_Text_triggered();
     //! Запускает диалог лотереи.
     void on_actionLottery_triggered();
     //! Запускает диалог редактирования заметки
